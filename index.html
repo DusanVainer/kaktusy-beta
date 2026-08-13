@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidence Kaktusů 2.0 | Beta Testování</title>
+    <style>
+        /* Základní barvy */
+        :root {
+            --primary: #548853;
+            --primary-hover: #436e42;
+            --text-main: #2c3e50;
+            --text-light: #5c6c7c;
+            --bg-page: #f5f7fa;
+            --bg-card: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Hlavička - Hero sekce s obrázkem na pozadí */
+        header {
+            /* Tmavý gradient přes fotku pro lepší čitelnost textu */
+            background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.7)), url('tvoje-makro-fotka.jpg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px 120px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+            color: white; /* Bílý text na tmavém pozadí */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        /* Tlačítko - Výzva k akci */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(84, 136, 83, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(84, 136, 83, 0.6);
+            border: 2px solid #a3c9a2;
+        }
+
+        /* Sekce s hlavními funkcemi (Taháky) */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: -60px auto 50px auto; /* Vytaženo mírně přes hlavičku pro 3D efekt */
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 280px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        /* Galerie / Ukázka z aplikace */
+        .gallery-section {
+            max-width: 1100px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+        }
+
+.gallery-item {
+            background-color: #ffffff; /* Sjednotí pozadí na čistě bílou */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid #d1d9e0;
+            
+            /* Tímto vnutíme všem blokům naprosto stejný tvar (poměr stran) */
+            aspect-ratio: 16 / 10; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* Drobný okraj, ať grafika neleží na hraně */
+        }
+
+.gallery-item img {
+            width: 100%;
+            height: 100%;
+            
+            /* Kouzelná vlastnost: obrázek se zmenší/zvětší tak, aby se vešel celý a nedeformoval se */
+            object-fit: contain; 
+            
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03); /* Mírné přiblížení při najetí myší */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .placeholder {
+            padding: 120px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Patička */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #eef2f5;
+            color: var(--text-light);
+            border-top: 1px solid #d1d9e0;
+        }
+        
+        footer p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        /* Responzivita pro mobily */
+        @media (max-width: 768px) {
+            header { padding: 60px 15px 80px 15px; }
+            h1 { font-size: 2.2rem; }
+            .features { margin-top: -30px; gap: 20px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .feature-card { padding: 25px 20px; }
+        }
+
+        /* Styly pro vyskakovací okno (Lightbox) */
+        .modal {
+            display: none; /* Skryto ve výchozím stavu */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Poloprůhledné černé pozadí */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px); /* Elegantní rozmazání pozadí */
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        /* Animace přiblížení */
+        @keyframes zoomIn {
+            from {transform: scale(0.9); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        /* Aby kurzor na obrázcích v galerii ukazoval, že jde kliknout */
+        .gallery-item img {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Evidence kaktusů 2.0</h1>
+        <p class="subtitle">Konec papírkům a ztraceným polním číslům. Už žádné potrhané čtverečkované sešity, ale moderní, bezpečný a rychlý systém pro správu sbírky i výsevů. </p> 
+        <p class="subtitle">Hledám odvážlivce, kteří se aplikaci vyzkouší. Nebojte - nic rozbít ani nenávratně vymazat nemůžete.</p>
+        <a href="#" class="cta-button">🚀 Chci se stát beta testerem (přístup na 3 dny)</a>
+
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <span class="feature-icon">🌵</span>
+            <h3>Vše na jednom místě</h3>
+            <p>Kompletní evidence rostlin i výsevů, od semínka po dospělou rostlinu. Vše pohromadě včetně hromadného importu přes CSV!</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <h3>Statistiky, co dávají smysl</h3>
+            <p>Automatické grafy klíčivosti podle rodů, druhů i dodavatelů. Hned víte, čí semena za to stojí a na koho si dát pozor.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <h3>Chytré formuláře</h3>
+            <p>Zadávání je bleskové. Automatické doplňování rodů, evidence dodavatelů a polních čísel bez zbytečných překlepů.</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Jak aplikace vypadá?</h2>
+        <div class="gallery-grid">
+            
+    <!-- Obrázek 1: Hlavní tabulka -->
+    <div class="gallery-item">
+        <img src="Snímek obrazovky 2026-08-06 144733.png" alt="Hlavní přehled sbírky">
+    </div>
+
+    <!-- Obrázek 2: Zelený formulář -->
+    <div class="gallery-item">
+        <img src="Snímek obrazovky 2026-08-06 144750.png" alt="Zadávací formulář">
+    </div>
+
+    <!-- Obrázek 3: Statistiky Rody -->
+    <div class="gallery-item">
+        <img src="Snímek obrazovky 2026-08-06 144805.png" alt="Grafy klíčivosti - rody">
+    </div>
+
+    <!-- Obrázek 4: Statistiky Dodavatelé -->
+    <div class="gallery-item">
+        <img src="Snímek obrazovky 2026-08-06 145047.png" alt="Grafy klíčivosti - dodavatelé">
+    </div>
+
+</div>
+
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://m.me/dusan.vainer" class="cta-button" target="_blank">🚀 Napsat si o přístup</a>
+        
+    </footer>
+<!-- Vyskakovací okno pro obrázky (Lightbox) -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
+    <script>
+        // Získání prvků
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const images = document.querySelectorAll(".gallery-item img");
+        const closeBtn = document.querySelector(".close-modal");
+
+        // Po kliknutí na jakýkoliv obrázek v galerii
+        images.forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "flex"; // Zobrazí modal
+                modalImg.src = this.src;      // Zkopíruje zdroj kliknutého obrázku
+            }
+        });
+
+        // Zavření po kliknutí na křížek
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Zavření po kliknutí kamkoliv mimo obrázek
+        modal.onclick = function(event) {
+            if (event.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Zavření pomocí klávesy ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
