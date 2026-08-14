@@ -2,11 +2,12 @@
 <html lang="cs">
 <head>
     <!-- Facebook / Open Graph Meta Tags -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dusanvainer.github.io/kaktusy-beta/">
-<meta property="og:title" content="Evidence kaktusů 2.0 | Hledám beta testery 🌵">
-<meta property="og:description" content="Konec ztraceným polním číslům a čtverečkovaným sešitům. Vyzkoušejte nový systém pro správy sbírky i výsevů.">
-<meta property="og:image" content="https://dusanvainer.github.io/kaktusy-beta/preview.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dusanvainer.github.io/kaktusy-beta/">
+    <meta property="og:title" content="Evidence kaktusů 2.0 | Hledám beta testery 🌵">
+    <meta property="og:description" content="Konec ztraceným polním číslům a čtverečkovaným sešitům. Vyzkoušejte nový systém pro správy sbírky i výsevů.">
+    <meta property="og:image" content="https://dusanvainer.github.io/kaktusy-beta/preview.png">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evidence Kaktusů 2.0 | Beta Testování</title>
@@ -32,14 +33,13 @@
 
         /* Hlavička - Hero sekce s obrázkem na pozadí */
         header {
-            /* Tmavý gradient přes fotku pro lepší čitelnost textu */
             background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.7)), url('tvoje-makro-fotka.jpg'); 
             background-size: cover;
             background-position: center;
             padding: 100px 20px 120px 20px;
             text-align: center;
             border-bottom: 5px solid var(--primary);
-            color: white; /* Bílý text na tmavém pozadí */
+            color: white;
         }
 
         h1 {
@@ -81,13 +81,13 @@
             border: 2px solid #a3c9a2;
         }
 
-        /* Sekce s hlavními funkcemi (Taháky) */
+        /* Sekce s hlavními funkcemi */
         .features {
             display: flex;
             justify-content: center;
             gap: 30px;
             max-width: 1100px;
-            margin: -60px auto 50px auto; /* Vytaženo mírně přes hlavičku pro 3D efekt */
+            margin: -60px auto 50px auto;
             padding: 0 20px;
             flex-wrap: wrap;
         }
@@ -140,46 +140,30 @@
             gap: 25px;
         }
 
-.gallery-item {
-            background-color: #ffffff; /* Sjednotí pozadí na čistě bílou */
+        .gallery-item {
+            background-color: #ffffff;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             position: relative;
             border: 1px solid #d1d9e0;
-            
-            /* Tímto vnutíme všem blokům naprosto stejný tvar (poměr stran) */
             aspect-ratio: 16 / 10; 
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px; /* Drobný okraj, ať grafika neleží na hraně */
+            padding: 10px;
         }
 
-.gallery-item img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
-            
-            /* Kouzelná vlastnost: obrázek se zmenší/zvětší tak, aby se vešel celý a nedeformoval se */
             object-fit: contain; 
-            
             transition: transform 0.3s ease;
+            cursor: zoom-in;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.03); /* Mírné přiblížení při najetí myší */
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.02);
-        }
-
-        .placeholder {
-            padding: 120px 20px;
-            text-align: center;
-            color: var(--text-light);
-            font-weight: bold;
-            font-size: 1.1rem;
+            transform: scale(1.03);
         }
 
         /* Patička */
@@ -189,11 +173,6 @@
             background-color: #eef2f5;
             color: var(--text-light);
             border-top: 1px solid #d1d9e0;
-        }
-        
-        footer p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
         }
 
         /* Responzivita pro mobily */
@@ -205,20 +184,20 @@
             .feature-card { padding: 25px 20px; }
         }
 
-        /* Styly pro vyskakovací okno (Lightbox) */
+        /* Lightbox */
         .modal {
-            display: none; /* Skryto ve výchozím stavu */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Poloprůhledné černé pozadí */
+            background-color: rgba(0, 0, 0, 0.85);
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            backdrop-filter: blur(5px); /* Elegantní rozmazání pozadí */
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
@@ -229,7 +208,6 @@
             animation: zoomIn 0.3s ease;
         }
 
-        /* Animace přiblížení */
         @keyframes zoomIn {
             from {transform: scale(0.9); opacity: 0;}
             to {transform: scale(1); opacity: 1;}
@@ -249,21 +227,15 @@
         .close-modal:hover {
             color: var(--primary);
         }
-
-        /* Aby kurzor na obrázcích v galerii ukazoval, že jde kliknout */
-        .gallery-item img {
-            cursor: zoom-in;
-        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Evidence kaktusů 2.0</h1>
-        <p class="subtitle">Konec papírkům a ztraceným polním číslům. Už žádné potrhané čtverečkované sešity, ale moderní, bezpečný a rychlý systém pro správu sbírky i výsevů. </p> 
-        <p class="subtitle">Hledám odvážlivce, kteří se aplikaci vyzkouší. Nebojte - nic rozbít ani nenávratně vymazat nemůžete.</p>
-        <a href="#" class="cta-button">🚀 Chci se stát beta testerem (přístup na 3 dny)</a>
-
+        <p class="subtitle">Konec papírkům a ztraceným polním číslům. Už žádné potrhané čtverečkované sešity, ale moderní, bezpečný a rychlý systém pro správu sbírky i výsevů.</p> 
+        <p class="subtitle">Hledám odvážlivce, kteří si aplikaci vyzkouší. Nebojte – nic rozbít ani nenávratně vymazat nemůžete.</p>
+        <a href="https://tally.so/r/xX7gpG" class="cta-button" target="_blank">🚀 Chci se stát beta testerem (přístup na 3 dny)</a>
     </header>
 
     <section class="features">
@@ -287,69 +259,54 @@
     <section class="gallery-section">
         <h2>Jak aplikace vypadá?</h2>
         <div class="gallery-grid">
-            
-    <!-- Obrázek 1: Hlavní tabulka -->
-    <div class="gallery-item">
-        <img src="Snímek obrazovky 2026-08-06 144733.png" alt="Hlavní přehled sbírky">
-    </div>
-
-    <!-- Obrázek 2: Zelený formulář -->
-    <div class="gallery-item">
-        <img src="Snímek obrazovky 2026-08-06 144750.png" alt="Zadávací formulář">
-    </div>
-
-    <!-- Obrázek 3: Statistiky Rody -->
-    <div class="gallery-item">
-        <img src="Snímek obrazovky 2026-08-06 144805.png" alt="Grafy klíčivosti - rody">
-    </div>
-
-    <!-- Obrázek 4: Statistiky Dodavatelé -->
-    <div class="gallery-item">
-        <img src="Snímek obrazovky 2026-08-06 145047.png" alt="Grafy klíčivosti - dodavatelé">
-    </div>
-
-</div>
-
+            <div class="gallery-item">
+                <img src="Snímek obrazovky 2026-08-06 144733.png" alt="Hlavní přehled sbírky">
+            </div>
+            <div class="gallery-item">
+                <img src="Snímek obrazovky 2026-08-06 144750.png" alt="Zadávací formulář">
+            </div>
+            <div class="gallery-item">
+                <img src="Snímek obrazovky 2026-08-06 144805.png" alt="Grafy klíčivosti - rody">
+            </div>
+            <div class="gallery-item">
+                <img src="Snímek obrazovky 2026-08-06 145047.png" alt="Grafy klíčivosti - dodavatelé">
+            </div>
         </div>
     </section>
 
     <footer>
         <a href="https://tally.so/r/xX7gpG" class="cta-button" target="_blank">🚀 Napsat si o přístup</a>
-        
     </footer>
-<!-- Vyskakovací okno pro obrázky (Lightbox) -->
+
+    <!-- Vyskakovací okno pro obrázky (Lightbox) -->
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
-        <img class="modal-content" id="expandedImg">
+        <img class="modal-content" id="expandedImg" alt="Detail obrázku">
     </div>
+
     <script>
-        // Získání prvků
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("expandedImg");
         const images = document.querySelectorAll(".gallery-item img");
         const closeBtn = document.querySelector(".close-modal");
 
-        // Po kliknutí na jakýkoliv obrázek v galerii
         images.forEach(img => {
             img.onclick = function() {
-                modal.style.display = "flex"; // Zobrazí modal
-                modalImg.src = this.src;      // Zkopíruje zdroj kliknutého obrázku
+                modal.style.display = "flex";
+                modalImg.src = this.src;
             }
         });
 
-        // Zavření po kliknutí na křížek
         closeBtn.onclick = function() {
             modal.style.display = "none";
         }
 
-        // Zavření po kliknutí kamkoliv mimo obrázek
         modal.onclick = function(event) {
             if (event.target !== modalImg) {
                 modal.style.display = "none";
             }
         }
 
-        // Zavření pomocí klávesy ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 modal.style.display = "none";
